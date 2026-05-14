@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — RedFlag Names</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0A0A12;
+      --surface: #13131F;
+      --border: rgba(255,255,255,0.07);
+      --red: #FF3B5C;
+      --gold: #FFD700;
+      --text: #E8E8F0;
+      --muted: rgba(232,232,240,0.45);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Noise overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Hero ── */
+    header {
+      position: relative;
+      padding: 64px 24px 48px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(255,59,92,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .flag-icon {
+      font-size: 52px;
+      display: block;
+      margin-bottom: 20px;
+      animation: wave 2.5s ease-in-out infinite;
+      transform-origin: bottom left;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+    }
+
+    header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    header h1 span { color: var(--red); }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,59,92,0.12);
+      border: 1px solid rgba(255,59,92,0.3);
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    /* ── Layout ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: rgba(255,59,92,0.25); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card-icon {
+      font-size: 26px;
+      width: 48px; height: 48px;
+      background: rgba(255,59,92,0.1);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .card p {
+      color: rgba(232,232,240,0.75);
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── List ── */
+    ul.policy-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    ul.policy-list li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      color: rgba(232,232,240,0.75);
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul.policy-list li:last-child { border-bottom: none; }
+
+    ul.policy-list li::before {
+      content: '🚩';
+      position: absolute;
+      left: 0;
+      font-size: 13px;
+    }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: rgba(255,215,0,0.06);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: rgba(255,215,0,0.9);
+    }
+
+    /* ── Contact ── */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(255,59,92,0.08), rgba(255,215,0,0.04));
+      border: 1px solid rgba(255,59,92,0.2);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .contact-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+
+    .email-link {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .email-link:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong {
+      font-family: 'Syne', sans-serif;
+      color: var(--gold);
+    }
+
+    a { color: var(--red); }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="flag-icon">🚩</span>
+  <div class="badge">Legal Document</div>
+  <h1>Privacy Policy<br/><span>RedFlag Names</span></h1>
+  <p class="last-updated">Last updated: May 14, 2026</p>
+</header>
+
+<main>
+
+  <!-- Intro -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📋</div>
+      <h2>Overview</h2>
+    </div>
+    <p>RedFlag Names ("the App") is operated by <strong>chAs Technologies LLC</strong>. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+    <p>By using RedFlag Names, you agree to the practices described in this policy. The app is intended for entertainment purposes only.</p>
+    <div class="highlight">
+      ⚠️ RedFlag Names does not require account creation or login. We do not collect your name, email, or personal identity.
+    </div>
+  </div>
+
+  <!-- Data Collected -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📊</div>
+      <h2>Information We Collect</h2>
+    </div>
+    <p>The App collects the following categories of data:</p>
+    <ul class="policy-list">
+      <li><strong>Names you enter</strong> — stored locally on your device only for history purposes. Never transmitted to our servers.</li>
+      <li><strong>Advertising ID (GAID)</strong> — collected by Google AdMob to serve personalized ads to free users.</li>
+      <li><strong>App usage data</strong> — collected anonymously by AdMob and Google Play to improve ad relevance.</li>
+      <li><strong>Purchase records</strong> — if you purchase "Remove Ads Forever," Google Play processes the transaction. We only receive confirmation of the purchase status.</li>
+      <li><strong>Device information</strong> — operating system version, device type, and app version, collected by AdMob for ad targeting.</li>
+    </ul>
+  </div>
+
+  <!-- Ads -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📢</div>
+      <h2>Advertising</h2>
+    </div>
+    <p>RedFlag Names uses <strong>Google AdMob</strong> to display ads to free users. AdMob may collect and use your Advertising ID to show you personalized ads.</p>
+    <p>AdMob may collect:</p>
+    <ul class="policy-list">
+      <li>Advertising ID (GAID on Android)</li>
+      <li>IP address and approximate location</li>
+      <li>App interaction data for ad measurement</li>
+    </ul>
+    <p>You can opt out of personalized advertising in your device settings under <strong>Privacy → Ads → Opt out of Ads Personalization</strong>.</p>
+    <p>For more information, see <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+    <div class="highlight">
+      👑 Users who purchase "Remove Ads Forever" ($2.99) will not be shown any ads and AdMob will not collect advertising data from those sessions.
+    </div>
+  </div>
+
+  <!-- Local Storage -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">💾</div>
+      <h2>Local Data Storage</h2>
+    </div>
+    <p>The following data is stored <strong>only on your device</strong> and is never transmitted to our servers:</p>
+    <ul class="policy-list">
+      <li>Names you have analyzed (history)</li>
+      <li>Your app preferences and settings</li>
+      <li>Rewarded ad status (24-hour timer)</li>
+      <li>Purchase status for "Remove Ads Forever"</li>
+    </ul>
+    <p>You can clear this data at any time by clearing the app's data from your device settings, or using the "Clear History" option inside the app.</p>
+  </div>
+
+  <!-- Notifications -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔔</div>
+      <h2>Notifications</h2>
+    </div>
+    <p>With your permission, RedFlag Names sends local push notifications to remind you to analyze names. These notifications are generated entirely on your device — no notification data is sent to external servers.</p>
+    <p>You can disable notifications at any time in your device's notification settings or inside the app.</p>
+  </div>
+
+  <!-- In-App Purchases -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">💳</div>
+      <h2>In-App Purchases</h2>
+    </div>
+    <p>RedFlag Names offers a one-time in-app purchase: <strong>"Remove Ads Forever" ($2.99)</strong>.</p>
+    <p>All payment processing is handled entirely by <strong>Google Play</strong>. We do not collect, store, or process your payment information. We only receive a confirmation that a purchase was completed.</p>
+    <p>For questions about billing, refer to <a href="https://support.google.com/googleplay" target="_blank">Google Play Support</a>.</p>
+  </div>
+
+  <!-- Third Parties -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔗</div>
+      <h2>Third-Party Services</h2>
+    </div>
+    <p>The App integrates the following third-party services, each with their own privacy policies:</p>
+    <ul class="policy-list">
+      <li><strong>Google AdMob</strong> — <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+      <li><strong>Google Play Billing</strong> — <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice" target="_blank">Google Payments Privacy Notice</a></li>
+      <li><strong>Google Play Services</strong> — <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+    </ul>
+  </div>
+
+  <!-- Children -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👶</div>
+      <h2>Children's Privacy</h2>
+    </div>
+    <p>RedFlag Names is intended for users <strong>18 years of age and older</strong>. The app contains relationship-themed humor and is not directed at children under 13.</p>
+    <p>We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us immediately.</p>
+  </div>
+
+  <!-- Your Rights -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⚖️</div>
+      <h2>Your Rights</h2>
+    </div>
+    <p>Depending on your location, you may have the following rights:</p>
+    <ul class="policy-list">
+      <li>Right to access the data we hold about you</li>
+      <li>Right to request deletion of your data</li>
+      <li>Right to opt out of personalized advertising</li>
+      <li>Right to data portability</li>
+    </ul>
+    <p>Since most data is stored locally on your device, you can exercise most rights directly by clearing app data. For AdMob data, use your device's advertising settings.</p>
+  </div>
+
+  <!-- Changes -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📝</div>
+      <h2>Changes to This Policy</h2>
+    </div>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the "Last updated" date at the top of this page.</p>
+    <p>Continued use of the app after changes constitutes your acceptance of the updated policy.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-card">
+    <h2>Questions? 🚩</h2>
+    <p>If you have any questions about this Privacy Policy or how we handle your data, reach out to us directly.</p>
+    <a class="email-link" href="mailto:privacy@chastechnologies.com">privacy@chastechnologies.com</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 <strong>chAs Technologies LLC</strong> · All rights reserved</p>
+  <p style="margin-top:6px;">RedFlag Names — Purely for entertainment. No one is safe 🚩</p>
+</footer>
+
+</body>
+</html>
